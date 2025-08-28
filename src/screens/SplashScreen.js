@@ -4,7 +4,7 @@ import { View, Image, StyleSheet } from "react-native";
 export default function SplashScreen({ navigation }) {
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.replace("MainTabs"); // troca para as abas
+      navigation.replace("paginainicial"); // troca para as abas
     }, 3000);
 
     return () => clearTimeout(timer);

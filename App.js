@@ -8,6 +8,7 @@ import realizarLogin from "./src/screens/realizarLogin";
 import homeScreen from "./src/screens/homeScreen";
 import carrinhoCompras from "./src/screens/carrinhoCompras";
 import SplashScreen from "./src/screens/SplashScreen";
+import paginainicial from "./src/screens/paginainicial";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -44,6 +45,7 @@ export default function App() {
       <StatusBar style="auto" />
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Splash" component={SplashScreen} />
+        <Stack.Screen name="paginainicial" component={paginainicial} />
         <Stack.Screen name="MainTabs" component={MainTabs} />
       </Stack.Navigator>
     </NavigationContainer>

@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Ionicons } from "@expo/vector-icons";
 
+import realizarLogin from "./src/screens/realizarLogin";
 import homeScreen from "./src/screens/homeScreen";
 import carrinhoCompras from "./src/screens/carrinhoCompras";
 import SplashScreen from "./src/screens/SplashScreen";
@@ -30,6 +31,7 @@ function MainTabs() {
         tabBarInactiveTintColor: "gray",
       })}
     >
+        <Tab.Screen name="realizarLogin" component={realizarLogin} />
       <Tab.Screen name="homeScreen" component={homeScreen} />
       <Tab.Screen name="carrinhoCompras" component={carrinhoCompras} />
     </Tab.Navigator>

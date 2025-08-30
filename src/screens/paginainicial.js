@@ -1,34 +1,55 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
+import {
+  useFonts,
+  Poppins_400Regular,
+  Poppins_700Bold,
+  Poppins_900Black,
+} from "@expo-google-fonts/poppins";
 
 export default function SplashScreen({ navigation }) {
+  const [fontsLoaded] = useFonts({
+    Poppins_400Regular,
+    Poppins_700Bold,
+    Poppins_900Black,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <View style={styles.container}>
-      {/* LOGO */}
       <Image
         source={require("../assets/logo_essencianatural_semfundo.png")}
         style={styles.logo}
         resizeMode="contain"
       />
 
-      {/* TEXTO */}
-      <Text style={styles.title}>Bem vindo</Text>
-      <Text style={styles.subtitle}>Encontre seu cosmético aqui</Text>
+      <Text style={[styles.title, { fontFamily: "Poppins_700Bold" }]}>
+        Bem vindo
+      </Text>
+      <Text style={[styles.subtitle, { fontFamily: "Poppins_400Regular" }]}>
+        Encontre seu cosmético aqui
+      </Text>
 
-      {/* PARTE VERDE COM BOTÕES */}
       <View style={styles.bottomContainer}>
         <TouchableOpacity
           style={styles.loginButton}
           onPress={() => navigation.replace("MainTabs")}
         >
-          <Text style={styles.loginText}>Login</Text>
+          <Text style={[styles.loginText, { fontFamily: "Poppins_700Bold" }]}>
+            Login
+          </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.registerButton}
           onPress={() => alert("Cadastrar clicado!")}
         >
-          <Text style={styles.registerText}>Cadastrar</Text>
+          <Text style={[styles.registerText, { fontFamily: "Poppins_700Bold" }]}>
+            Cadastrar
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -44,32 +65,35 @@ const styles = StyleSheet.create({
     paddingTop: 80,
   },
   logo: {
-    width: 150,
-    height: 150,
-    marginBottom: 20,
+    width: 230,
+    height: 230,
+    marginBottom: 30,
+    marginTop: 20,
   },
   title: {
-    fontSize: 28,
-    fontWeight: "bold",
-    color: "#1a4d20", // verde escuro
+    fontSize: 30,
+    color: "#416a14",
   },
   subtitle: {
-    fontSize: 16,
-    color: "#1a4d20",
+    fontSize: 20,
+    color: "#416a14",
     marginBottom: 40,
   },
   bottomContainer: {
     position: "absolute",
     bottom: 0,
     width: "100%",
-    backgroundColor: "#1a4d20",
+    height: "40%",
+    backgroundColor: "#263c0e",
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
     padding: 30,
     alignItems: "center",
+    justifyContent: "center",
   },
+
   loginButton: {
-    backgroundColor: "#2ecc71",
+    backgroundColor: "#00bf63",
     width: "80%",
     paddingVertical: 15,
     borderRadius: 10,
@@ -79,11 +103,10 @@ const styles = StyleSheet.create({
   loginText: {
     color: "#fff",
     fontSize: 18,
-    fontWeight: "bold",
   },
   registerButton: {
     borderWidth: 2,
-    borderColor: "#2ecc71",
+    borderColor: "#00bf63",
     width: "80%",
     paddingVertical: 15,
     borderRadius: 10,
@@ -92,6 +115,5 @@ const styles = StyleSheet.create({
   registerText: {
     color: "#fff",
     fontSize: 18,
-    fontWeight: "bold",
   },
 });

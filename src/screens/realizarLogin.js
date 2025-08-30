@@ -18,7 +18,6 @@ export default function TelaLogin({ navigation }) {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
-  // Carregar fontes
   const [fontsLoaded] = useFonts({
     Poppins_400Regular,
     Poppins_700Bold,
@@ -26,7 +25,6 @@ export default function TelaLogin({ navigation }) {
   });
 
   if (!fontsLoaded) {
-    // Aqui você pode usar um spinner ou deixar null até carregar
     return null;
   }
 
@@ -35,15 +33,16 @@ export default function TelaLogin({ navigation }) {
       <View style={estilos.topo}>
         <TouchableOpacity
           style={estilos.voltar}
-          onPress={() => navigation.goBack()}
+          onPress={() => navigation.navigate("paginainicial")}
         >
           <Ionicons name="arrow-back" size={20} color="#fff" />
           <Text
             style={[estilos.textoVoltar, { fontFamily: "Poppins_400Regular" }]}
           >
-            Back
+            Voltar
           </Text>
         </TouchableOpacity>
+
         <Text
           style={[estilos.textoLoginTopo, { fontFamily: "Poppins_700Bold" }]}
         >
@@ -113,9 +112,9 @@ const estilos = StyleSheet.create({
   },
   topo: {
     backgroundColor: "#00bf63",
-    width: 180,
-    height: 180,
-    borderRadius: 90,
+    width: 200,
+    height: 200,
+    borderRadius: 100,
     position: "absolute",
     top: -50,
     left: -60,
@@ -131,7 +130,7 @@ const estilos = StyleSheet.create({
   textoVoltar: {
     color: "#fff",
     marginLeft: 5,
-    fontSize: 14,
+    fontSize: 20,
     fontWeight: "bold",
   },
   textoLoginTopo: {
@@ -150,7 +149,7 @@ const estilos = StyleSheet.create({
   },
   titulo: {
     fontSize: 40,
-    fontWeight: "900",
+    fontWeight: "800",
     color: "#fff",
     textAlign: "center",
     marginBottom: 5,
@@ -167,12 +166,18 @@ const estilos = StyleSheet.create({
     fontSize: 12,
     marginTop: 10,
     marginBottom: 5,
+    width: "85%",   
+    alignSelf: "center", 
   },
+
   input: {
     backgroundColor: "#849878ff",
     borderRadius: 10,
     padding: 12,
     color: "#fff",
+    width: "85%",    
+    alignSelf: "center",   
+    marginBottom: 10,
   },
   botao: {
     backgroundColor: "#00bf63",
@@ -180,7 +185,10 @@ const estilos = StyleSheet.create({
     borderRadius: 30,
     alignItems: "center",
     marginTop: 25,
+    width: "85%", 
+    alignSelf: "center",   
   },
+
   textoBotao: {
     color: "#ffffffff",
     fontSize: 16,

@@ -43,11 +43,7 @@ export default function TelaLogin({ navigation }) {
           </Text>
         </TouchableOpacity>
 
-        <Text
-          style={[estilos.textoLoginTopo, { fontFamily: "Poppins_700Bold" }]}
-        >
-          Login
-        </Text>
+ 
       </View>
 
       <View style={estilos.card}>
